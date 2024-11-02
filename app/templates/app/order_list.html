@@ -1,0 +1,15 @@
+{% extends "app/base.html" %}
+{% block content %}
+<div class="orders-list">
+  <ul>
+    {% for order in orders %}
+      <li>
+        <div class="order-details">
+          Order ID: {{ order.id }} - {{ order.product.name }} - Quantity: {{ order.quantity }} - Total: ${{ order.total_price }}
+        </div>
+        <a href="{% url 'order_detail' order.id %}" class="order-link">View Details</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

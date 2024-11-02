@@ -1,0 +1,19 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="categories-page">
+    <h1>Search Results</h1>
+    <p>Showing results for: "{{ request.GET.q }}"</p>
+
+    <ul>
+        {% for category in categories %}
+            <li><a href="{% url 'category_detail' category.id %}">{{ category.name }}</a></li>
+        {% empty %}
+            <li>No categories match your search criteria.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'category_list' %}">Back to All Categories</a>
+</div>
+{% endblock %}

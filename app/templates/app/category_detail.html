@@ -1,0 +1,82 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+  /* Container for category details */
+  .category-details {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      color: #333;
+  }
+
+  /* Category title styling */
+  .category-details h1 {
+      font-size: 2.2em;
+      color: #007bff;
+      margin-bottom: 10px;
+  }
+
+  /* Category description styling */
+  .category-details p {
+      font-size: 1.1em;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.6;
+  }
+
+  /* Title for product list */
+  .category-details h2 {
+      font-size: 1.8em;
+      margin-top: 30px;
+      color: #444;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+  }
+
+  /* Product list container */
+  .product-list {
+      list-style: none;
+      padding: 0;
+  }
+
+  /* Individual product item styling */
+  .product-list li {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      font-size: 1.05em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  /* Price styling */
+  .product-list li span.price {
+      font-weight: bold;
+      color: #007bff;
+      font-size: 1.1em;
+  }
+</style>
+
+<div class="category-details">
+  <h1>{{ category.name }}</h1>
+  <p>{{ category.description }}</p>
+
+  <h2>Products in this category:</h2>
+  <ul class="product-list">
+    {% for product in category.products.all %}
+      <li>
+        {{ product.name }}
+        <span class="price">${{ product.price }}</span>
+      </li>
+    {% empty %}
+      <li>No products available in this category.</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block content %}
+  <h1>Reviews for {{ product.name }}</h1>
+  <ul>
+    {% for review in reviews %}
+      <li>
+        <strong>{{ review.user.username }}</strong>: {{ review.rating }} / 5<br>
+        {{ review.comment }}<br>
+        <em>{{ review.review_date }}</em>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'review_create' product.id %}">Add a Review</a>
+{% endblock %}

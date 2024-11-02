@@ -1,0 +1,12 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block content %}
+<div class="order-details-container">
+  <h1>Order Details</h1>
+  <p><strong>Order ID:</strong> {{ order.id }}</p>
+  <p><strong>Product:</strong> {{ order.product.name }}</p>
+  <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+  <p><strong>Status:</strong> {{ order.status }}</p>
+  <p class="order-total">Total: ${{ order.total_price }}</p>
+</div>
+{% endblock %}

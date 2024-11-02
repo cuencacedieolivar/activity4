@@ -1,0 +1,94 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+  /* Styles for the search results page */
+  .search-page {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+  }
+  .search-page h1 {
+      font-size: 2em;
+      color: #333;
+  }
+  .search-page input[type="text"] {
+      padding: 8px;
+      width: 70%;
+      font-size: 1em;
+  }
+  .search-page button {
+      padding: 8px 12px;
+      font-size: 1em;
+      cursor: pointer;
+  }
+  .results-section {
+      margin-top: 20px;
+      text-align: left;
+  }
+  .results-section h2 {
+      font-size: 1.5em;
+      color: #444;
+  }
+  .category-list, .product-list {
+      list-style: none;
+      padding: 0;
+  }
+  .category-list li, .product-list li {
+      margin: 10px 0;
+  }
+  .category-list a, .product-list a {
+      text-decoration: none;
+      color: #007bff;
+      transition: color 0.3s;
+  }
+  .category-list a:hover, .product-list a:hover {
+      color: #0056b3;
+  }
+  .no-results {
+      font-size: 1.2em;
+      color: #666;
+      margin-top: 20px;
+  }
+</style>
+
+<div class="search-page">
+    <h1>Search Results</h1>
+    <form method="get" action="{% url 'category_search' %}">
+        <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search categories and products..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if request.GET.q %}
+        <p>Results for: "<strong>{{ request.GET.q }}</strong>"</p>
+    {% endif %}
+
+    <div class="results-section">
+        <h2>Categories</h2>
+        <ul class="category-list">
+            {% for category in categories %}
+                <li><a href="{% url 'category_detail' category.id %}">{{ category.name }}</a></li>
+            {% empty %}
+                <li class="no-results">No categories found.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="results-section">
+        <h2>Products</h2>
+        <ul class="product-list">
+            {% for product in products %}
+                <li>
+                    <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a> -
+                    <strong>Category:</strong> {{ product.category.name }} -
+                    <strong>Price:</strong> ${{ product.price }}
+                </li>
+            {% empty %}
+                <li class="no-results">No products found.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

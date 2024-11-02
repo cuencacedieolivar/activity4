@@ -1,0 +1,55 @@
+{% extends "app/base.html" %}
+{% block content %}
+<div class="cart-box-form">
+  <div class="cart-form">
+    <div class="cart-title">
+      <h1>Your Cart</h1>
+    </div>
+
+    <!-- Table Layout for Cart Items -->
+    <div class="cart-table">
+      <div class="cart-table-header">
+        <div class="cart-cell">Product</div>
+        <div class="cart-cell">Price</div>
+        <div class="cart-cell">Quantity</div>
+        <div class="cart-cell">Total</div>
+        <div class="cart-cell">Actions</div>
+      </div>
+
+      {% for item in cart_items %}
+      <div class="cart-table-row">
+        <div class="cart-cell">{{ item.product.name }}</div>
+        <div class="cart-cell">${{ item.product.price }}</div>
+        <div class="cart-cell">
+          <form action="{% url 'update_cart_item' item.product.id %}" method="post">
+            {% csrf_token %}
+            <input type="number" name="quantity" min="1" value="{{ item.quantity }}" class="quantity-input">
+            <button type="submit" class="update-btn">Update</button>
+          </form>
+        </div>
+        <div class="cart-cell">${{ item.total_price }}</div>
+        <div class="cart-cell">
+          <!-- Form for removing the cart item -->
+          <form action="{% url 'remove_cart_item' item.product.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="remove-btn">Remove</button>
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!-- Total Row -->
+      <div class="cart-table-footer">
+        <div class="cart-cell" colspan="3"><strong>Total:</strong></div>
+        <div class="cart-cell"><strong>${{ total }}</strong></div>
+      </div>
+    </div>
+
+    <!-- Checkout Link -->
+    <div class="checkout-link">
+      <a href="{% url 'checkout' %}" class="checkout-btn">Proceed to Checkout</a>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
