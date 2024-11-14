@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Category, Product, Cart, CartItem, Order, Review
+from .models import Plant, HealthStatus, CustomUser, CareLog, Reminder, WateringSchedule
 
-admin.site.register(Category)
-admin.site.register(Product)
-admin.site.register(Cart)
-admin.site.register(CartItem)
-admin.site.register(Order)
-admin.site.register(Review)
+admin.site.register(Plant)
+admin.site.register(HealthStatus)
+admin.site.register(CustomUser)
+admin.site.register(CareLog)
+admin.site.register(Reminder)
+admin.site.register(WateringSchedule)

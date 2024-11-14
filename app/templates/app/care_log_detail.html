@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="care-log-detail-container">
+    <h4>{{ care_log.plant.name }} - Care Log Details</h4>
+    <p>Care Activity: {{ care_log.action }}</p>
+    <p>Date: {{ care_log.date }}</p>
+    <p>Notes: {{ care_log.notes }}</p>
+  </div>
+
+  <!-- Edit and Delete Links with Icons -->
+  <div class="care-log-actions">
+    {% if request.user == plant.user or request.user.is_superuser %}
+      <!-- Edit Care Log Button with Icon -->
+      <a href="{% url 'edit_care_log' plant_id=care_log.plant.id log_id=care_log.id %}" class="care-log-edit-button" title="Edit Care Log">
+        <i class="fas fa-edit"></i>
+      </a>
+      <!-- Delete Care Log Button with Icon -->
+      <a href="{% url 'delete_care_log' plant_id=care_log.plant.id log_id=care_log.id %}" class="care-log-delete-button" title="Delete Care Log">
+        <i class="fas fa-trash-alt"></i>
+      </a>
+    {% endif %}
+    <a href="{% url 'plant_detail' care_log.plant.id %}" class="care-log-back-button">
+      <i class="fas fa-arrow-left"></i> Back to Plant Details
+    </a>
+  </div>
+{% endblock %}

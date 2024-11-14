@@ -1,52 +1,78 @@
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import (CustomLoginView ,RegisterView, CustomLogoutView,
-    ProductListView, ProductDetailView, ProductCreateView,
-    ProductUpdateView, ProductDeleteView, CategoryListView, CategoryDetailView,
-    OrderListView, OrderDetailView, HomePageView, CartView, AddToCartView,RemoveCartItemView,
-    UpdateCartItemView, CheckoutView, OrderSuccessView, ReviewListView, ReviewCreateView,AdminProductListView,category_search
-)
+from .views import (CustomLoginView, RegisterView,
+                    CustomLogoutView,
+                    HomePageView,
+                    PlantListView,
+                    PlantDetailView,
+                    PlantCreateView,
+                    HealthStatusCreateView,
+                    CareLogCreateView,
+                    ReminderCreateView,
+                    CompleteReminderView,
+                    PlantDeleteView,
+                    PlantSearchView,
+                    HealthStatusDetailView,
+                    HealthStatusUpdateView,
+                    HealthStatusDeleteView,
+                    CareLogDetailView,
+                    CareLogUpdateView,
+                    CareLogDeleteView,
+                    ReminderDetailView,
+                    ReminderUpdateView,
+                    ReminderDeleteView,
+                    WateringScheduleDetailView,
+                    WateringScheduleCreateView,
+                    WateringScheduleUpdateView,
+                    WateringScheduleDeleteView,
+                    PlantUpdateView
+                    )
 
 urlpatterns = [
-    path('login/', CustomLoginView.as_view(), name='login'),
+    path('', CustomLoginView.as_view(), name='login'),
     path('register/', RegisterView.as_view(), name='register'),
     path('logout/', CustomLogoutView.as_view(), name='logout'),
-    # Home Page
-    path('', HomePageView.as_view(), name='home'),
+    path('home/', HomePageView.as_view(), name='home'),
 
-    # Product URLs
+    path('plants/', PlantListView.as_view(), name='plant_list'),  # List all plants
+    path('plant/<int:pk>/', PlantDetailView.as_view(), name='plant_detail'),  # View plant details
+    path('plant/add/', PlantCreateView.as_view(), name='add_plant'),  # Add new plant
+    path('plant/<int:plant_id>/health-status/add/',HealthStatusCreateView.as_view(), name='add_health_status'),  # Add health status
+    path('plant/<int:plant_id>/care-log/add/', CareLogCreateView.as_view(), name='add_care_log'),  # Add care log
+    path('plant/<int:plant_id>/reminder/add/', ReminderCreateView.as_view(), name='add_reminder'),  # Add reminder
+    path('plant/reminder/<int:reminder_id>/complete/', CompleteReminderView.as_view(), name='complete_reminder'),  # Mark reminder as complete
+    path('plant/<int:plant_id>/delete/', PlantDeleteView.as_view(), name='delete_plant'),  # Delete plant
+    path('plant/search/', PlantSearchView.as_view(), name='search_plants'),  # Search plants
 
-    path('admin_product_list', AdminProductListView.as_view(), name='admin_product_list'),  # Ensure this matches
-    path('products/', ProductListView.as_view(), name='products'),
-    path('products/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
-    path('products/new/', ProductCreateView.as_view(), name='product_create'),
-    path('products/<int:pk>/edit/', ProductUpdateView.as_view(), name='product_update'),
-    path('products/<int:pk>/delete/', ProductDeleteView.as_view(), name='product_delete'),
+    # Plant details page
+    path('plant/<int:pk>/', PlantDetailView.as_view(), name='plant_detail'),
+    path('plant/update/<int:pk>/', PlantUpdateView.as_view(), name='update_plant'),
 
+    # Health status detail page
+    path('health-status/<int:pk>/', HealthStatusDetailView.as_view(), name='health_status_detail'),
+    path('plant/<int:plant_id>/health_status/<int:status_id>/edit/', HealthStatusUpdateView.as_view(),
+         name='edit_health_status'),
+    path('plant/<int:plant_id>/health_status/<int:status_id>/delete/', HealthStatusDeleteView.as_view(),
+         name='health_status_delete'),
+    # Care log detail page
+    path('care-log/<int:pk>/', CareLogDetailView.as_view(), name='care_log_detail'),
+    path('plant/<int:plant_id>/care_log/<int:log_id>/edit/', CareLogUpdateView.as_view(), name='edit_care_log'),
+    path('plant/<int:plant_id>/care_log/<int:log_id>/delete/', CareLogDeleteView.as_view(),
+         name='delete_care_log'),
 
-    # Review URLs
-    path('products/<int:product_id>/reviews/', ReviewListView.as_view(), name='review_list'),
-    path('products/<int:product_id>/reviews/new/', ReviewCreateView.as_view(), name='review_create'),
+    # Reminder detail page
+    path('reminder/<int:pk>/', ReminderDetailView.as_view(), name='reminder_detail'),
+    path('plant/<int:plant_id>/reminder/<int:reminder_id>/edit/', ReminderUpdateView.as_view(),
+         name='edit_reminder'),
+    path('plant/<int:plant_id>/reminder/<int:reminder_id>/delete/', ReminderDeleteView.as_view(),
+         name='delete_reminder'),
 
-    # Category URLs
-    path('categories/', CategoryListView.as_view(), name='category_list'),
-    path('categories/<int:pk>/', CategoryDetailView.as_view(), name='category_detail'),
-    path('categories/search/', category_search, name='category_search'),  # Add the category search URL
+    path('watering_schedule/<int:pk>/', WateringScheduleDetailView.as_view(), name='watering_schedule_detail'),
+    path('plant/<int:plant_id>/add_watering_schedule/',WateringScheduleCreateView.as_view(), name='add_watering_schedule'),
+    path('watering_schedule/<int:schedule_id>/edit/', WateringScheduleUpdateView.as_view(), name='edit_watering_schedule'),
+    path('watering_schedule/delete/<int:plant_id>/<int:schedule_id>/', WateringScheduleDeleteView.as_view(), name='watering_schedule_delete'),
 
-    # Order URLs
-    path('orders/', OrderListView.as_view(), name='order_list'),
-    path('orders/<int:pk>/', OrderDetailView.as_view(), name='order_detail'),
-
-    # Cart URLs
-    path('cart/', CartView.as_view(), name='cart'),
-    path('cart/add/<int:product_id>/', AddToCartView.as_view(), name='add_to_cart'),
-    path('cart/update/<int:product_id>/', UpdateCartItemView.as_view(), name='update_cart_item'),
-    path('cart/remove/<int:product_id>/', RemoveCartItemView.as_view(), name='remove_cart_item'),
-
-    # Checkout and Order Success
-    path('checkout/', CheckoutView.as_view(), name='checkout'),
-    path('order-success/', OrderSuccessView.as_view(), name='order_success'),  # Separate view for order success
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="edit-health-status-container">
+    <h2>Edit Health Status for {{ health_status.plant.name }}</h2>
+    <form method="post" class="edit-health-status-form">
+      {% csrf_token %}
+      <div class="edit-health-form-group">
+          <label for="{{ form.status.id_for_label }}">Health Status:</label>
+          {{ form.status }}
+      </div>
+      <button type="submit" class="edit-health-save-button">Save</button>
+    </form>
+  </div>
+{% endblock %}

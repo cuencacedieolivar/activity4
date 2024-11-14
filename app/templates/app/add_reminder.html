@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="reminder-container">
+    <h1>Set Reminder</h1>
+    <form method="post" class="reminder-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="reminder-button">Set Reminder</button>
+    </form>
+  </div>
+{% endblock %}

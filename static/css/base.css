@@ -1,4 +1,5 @@
-*{
+/* Base Styles */
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -11,16 +12,15 @@ body, html {
     margin: 0;
     padding: 0;
     overflow: hidden;
-
+    background-color: #f4f4f4;
 }
-
-
 
 .container{
     display: flex;
     flex-wrap: wrap;
     height: 100vh;
     width: 100%;
+    overflow-y: auto;
 }
 .left-header{
     flex:50%;
@@ -102,666 +102,1409 @@ text-align: center;
 .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
-
-.content-container{
-    align-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #1b1b1b;
-    height: 90%;
-    width: 100%;
-    overflow-y: auto;
-}
-
-.product-list-container{
-    display: flex;
-    flex-wrap: wrap;
-    height: 95%;
-    width: 95%;
-    margin: 30px 30px 30px 30px;
-}
-.page-left{
-     background-color: greenyellow;
-    display: flex;
-    justify-content: center;
-    text-transform: uppercase;
-    height:40px;
-    min-width: 40px;
-    width: 100%;
-}
-.page-right{
-   background-color: greenyellow;
-    display: flex;
-    justify-content: center;
-       text-transform: uppercase;
-     height:40px;
-    min-height: 40px;
-    width: 100%;
-}
-
-.left-column-box{
-   border: 1px solid greenyellow;
-    display: flex;
-    flex-wrap: wrap;
-    height:auto;
-    flex:1;
-}
-
-.right-column-box{
-    border: 1px solid greenyellow;
-    display: flex;
-    flex-wrap: wrap;
-    height:auto;
-    flex:1;
-
-}
-
-
-.product-box-container{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    height: 350px;
-    width: 200px;
-    min-height: 350px;
-    min-width: 200px;
-    background-color: white;
-    border-radius: 10px;
-    margin:20px ;
-    overflow-y: auto;
-
-
-}
-.box-image{
-    display: flex;
-    background-color: #4f4f4f;
-    justify-content: center;
-}
-.box-image img{
-    display:flex;
-    height: 150px;
-    min-height: 150px;
-    width: 150px;
-    min-width: 150px;
-}
-
-.product-box-info{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: #4f4f4f;
-    height:auto;
-    width: 100%;
-    align-content: center;
-
-
-}
-
-.quantity-display{
-    align-content: center;
-    height: 100%;
-    width: 100%;
-}
-
-
-/* Product Detail Styles */
-.product-detail {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* Specific Styling for Content Blocks */
+.content-container {
+    max-width: 800px;
+    margin: auto;
     padding: 20px;
-    margin:auto;
-    width: 75%;
-}
-
-.product-detail-box {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.product-detail-image {
-    flex: 1;
-    margin-right: 20px;
-}
-
-.product-detail-image img {
-    max-width: 100%;
+    background-color: #fff;
     border-radius: 8px;
-}
-
-.product-detail-description {
-    flex: 2;
-}
-
-.product-detail-description h1 {
-    font-size: 24px;
-    margin: 0;
-}
-
-.product-detail-description p {
-    margin: 5px 0;
-}
-
-
-.admin-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.update-icon, .delete-icon {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #007bff;
-    font-size: 20px;
-
-}
-
-.update-icon:hover, .delete-icon:hover {
-    color: #0056b3;
-}
-
-.review-list {
-    margin-top: 20px;
-    padding: 15px;
-    background: #f9f9f9;
-    border-radius: 5px;
-    max-height: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
-    overflow-x: hidden;
+    height: auto;
 }
 
-.review-box {
-    padding: 10px;
+h1, h2, h4 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 1.8em;
+}
+
+h2, h4 {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+/* Form Styling */
+form {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow-y: auto;
+    height:auto;
+}
+
+
+
+button:hover, form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Health, Care, and Reminders Lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+ul li {
+    padding: 8px;
     border-bottom: 1px solid #ddd;
 }
 
-.review-box:last-child {
-    border-bottom: none;
-}
-
-.comment-section {
-    margin-bottom: 5px;
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
-}
-
-.comment-section strong {
-    color: #007bff;
-}
-
-.comment-section p {
-    margin: 0;
-    word-break: break-all;
-}
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .product-detail-box {
-        flex-direction: column;
-    }
-
-    .product-detail-image {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-}
-
-.review-box-form{
- display: flex;
- justify-content: center;
- height: 100%;
- width: 100%;
-
-
-
-}
-.review-form input{
-    text-align: center;
-    width: 90px;
-}
-.review-form label,textarea , button{
- align-content: center;
- height: 95%;
- width: 95%;
-}
-
-.cart-box-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-     margin: auto;
-}
-
-.cart-form {
-    width: 100%;
-    max-width: 700px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-}
-
-.cart-title h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.cart-table {
-    display: table;
-    width: 100%;
-    margin-bottom: 20px;
-    border-collapse: collapse;
-}
-
-.cart-table-header, .cart-table-row, .cart-table-footer {
-    display: table-row;
-    background-color: #f1f1f1;
-}
-
-.cart-table-header {
+.completed {
+    color: green;
     font-weight: bold;
-    background-color: #d3d3d3;
 }
 
-.cart-cell {
-    display: table-cell;
+.reminder-form {
+    display: inline;
+    margin-left: 8px;
+}
+
+.reminder-form button {
+    background-color: #ff9800;
+    color: #fff;
+}
+
+/* Search Form */
+form[method="GET"] {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+form[method="GET"] input[type="text"] {
+    flex: 1;
     padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-.quantity-input {
-    width: 50px;
-    text-align: center;
-    padding: 5px;
-    border-radius: 4px;
+    border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-.update-btn {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-top: 5px;
-    font-size: 14px;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    form[method="GET"] {
+        flex-direction: column;
+    }
 }
-
-.update-btn:hover {
-    background-color: #45a049;
-}
-
-.cart-table-footer {
-    font-weight: bold;
-    background-color: #e0e0e0;
-}
-.remove-btn {
-    background-color: #ff4d4d;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.remove-btn:hover {
-    background-color: #e60000;
-}
-.checkout-link {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.checkout-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-.checkout-btn:hover {
-    background-color: #0056b3;
-}
-
-.checkout-box-form {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: #f5f5f5;
-}
-
-.checkout-form {
-    width: 100%;
-    max-width: 600px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.order-summary {
-    display: table;
-    width: 100%;
-    margin: 20px 0;
-    border-collapse: collapse;
-}
-
-.table-header, .table-row, .table-footer {
-    display: table-row;
-    background-color: #f1f1f1;
-}
-
-.table-header {
-    font-weight: bold;
-    background-color: #d3d3d3;
-}
-
-.table-cell {
-    display: table-cell;
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-.table-footer {
-    font-weight: bold;
-    background-color: #e0e0e0;
-}
-
-.place-order-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    text-align: center;
-}
-
-.place-order-btn:hover {
-    background-color: #45a049;
-}
-
-
-.orders-list {
+/* Unique styling for plant management components */
+.plant-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 800px;
     margin: auto;
-}
-
-.orders-list ul {
-    list-style-type: none;
-    padding: 0;
-    width: 80%;
-    max-width: 600px;
-}
-
-.orders-list li {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-    font-size: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.order-details {
-    flex: 1;
-}
-
-.order-link {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-.order-link:hover {
-    background-color: #0056b3;
-}
-
-
-/* Styles for the Order Details Page */
-.order-details-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-}
-
-.order-details-container h1 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.order-details-container p {
-    font-size: 16px;
-    margin: 10px 0;
-    color: #555;
-}
-
-.order-details-container p strong {
-    color: #333;
-}
-
-.order-details-container .order-total {
-    font-size: 18px;
-    font-weight: bold;
-    color: #007bff;
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Styles for the Order Success Page */
-.order-success-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 40px;
-    background-color: #e6ffed;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-family: Arial, sans-serif;
-}
-
-.order-success-container h1 {
-    font-size: 28px;
-    color: #28a745;
-    margin-bottom: 20px;
-}
-
-.order-success-container p {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 30px;
-}
-
-.order-success-container a {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.order-success-container a:hover {
-    background-color: #0056b3;
-}
-.delete-my-product{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-} .delete-container {
-    max-width: 600px; /* Limit the width of the container */
-    margin: auto; /* Center the container with margin */
-    padding: 20px; /* Add padding for better spacing */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    background-color: #f9f9f9; /* Light background color */
-}
-
-.delete-product h1 {
-    text-align: center; /* Center the heading */
-    color: #333; /* Dark gray text color */
-}
-
-.delete-product p {
-    font-size: 16px; /* Set font size for the message */
-    text-align: center; /* Center align the paragraph */
-    margin: 20px 0; /* Add margin for spacing */
-}
-
-.delete-product form {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-around; /* Space buttons evenly */
-}
-
-.delete-my-product button {
-    background-color: #dc3545; /* Bootstrap danger button color */
-    color: white; /* White text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 20px; /* Padding for button */
-    cursor: pointer; /* Cursor pointer on hover */
-    transition: background-color 0.3s; /* Smooth transition */
-}
-
-.delete-my-product button:hover {
-    background-color: #c82333; /* Darker red on hover */
-}
-
-.delete-my-product .btn-secondary {
-    background-color: #6c757d;
-    color: white;
-}
-
-.delete-my-product .btn-secondary:hover {
-    background-color: #5a6268;
-      border-radius: 5px; /* Rounded corners */
-
-}
-
-
-/* Unique styles for Admin Product Management */
-.admin-product-container {
-    padding: 20px;
-    background-color: #f5f5f5; /* Light background for better contrast */
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.admin-product-table {
+.plant-container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.plant-container a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.plant-container a:hover {
+    text-decoration: underline;
+}
+
+.plant-search-form {
+    display: flex;
     width: 100%;
-    border-collapse: collapse;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.plant-search-form input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.plant-search-form button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.plant-search-form button:hover {
+    background-color: #45a049;
+}
+
+.list-plants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 0;
+}
+
+.plant-box {
+    width: 180px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s;
+}
+
+.plant-box:hover {
+    transform: translateY(-5px);
+}
+
+.plant-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.plant-box p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.plant-box a {
+    font-size: 0.9em;
+    color: #ff4b4b;
+    text-decoration: none;
+}
+
+.plant-box a:hover {
+    text-decoration: underline;
+}
+
+.no-plants-message {
+    font-size: 1.2em;
+    color: #777;
+    text-align: center;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .list-plants {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* Add Plant Form Styling */
+.add-plant-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.add-plant-container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.add-plant-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.add-plant-form input[type="text"],
+.add-plant-form input[type="file"],
+.add-plant-form select,
+.add-plant-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.add-plant-button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-plant-button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Adjustment */
+@media (max-width: 768px) {
+    .add-plant-container {
+        padding: 15px;
+    }
+
+    .add-plant-form {
+        gap: 10px;
+    }
+}
+
+/* Unique Styling for Plant Details Page */
+.plant-details-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.plant-description h4 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.plant-description p {
+    font-size: 1.1em;
+    color: #555;
+    margin: 5px 0;
+}
+
+.details-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0 30px;
+}
+
+.details-list li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.details-list li a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.details-list li a:hover {
+    text-decoration: underline;
+}
+
+.action-links a {
+    color: #4CAF50;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.action-links a:hover {
+    text-decoration: underline;
+}
+
+.completed {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.reminder-form {
+    display: inline;
+    margin-left: 8px;
+}
+
+.reminder-form button {
+    background-color: #ff9800;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.reminder-form button:hover {
+    background-color: #e68900;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .plant-details-container {
+        padding: 20px;
+    }
+
+    .plant-description h4 {
+        font-size: 1.5em;
+    }
+}
+
+
+
+/* Add Health Status Form Styling */
+.health-status-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.health-status-container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.health-status-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.health-status-form input[type="text"],
+.health-status-form select,
+.health-status-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.health-status-button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.health-status-button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .health-status-container {
+        padding: 20px;
+    }
+}
+
+
+
+/* Add Care Log Form Styling */
+.care-log-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.care-log-container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.care-log-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.care-log-form input[type="text"],
+.care-log-form select,
+.care-log-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.care-log-button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.care-log-button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .care-log-container {
+        padding: 20px;
+    }
+}
+
+/* Set Reminder Form Styling */
+.reminder-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.reminder-container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.reminder-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reminder-form input[type="text"],
+.reminder-form select,
+.reminder-form textarea,
+.reminder-form input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.reminder-button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reminder-button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .reminder-container {
+        padding: 20px;
+    }
+}
+
+/* Add Watering Schedule Form Styling */
+.watering-schedule-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.watering-schedule-container h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.watering-schedule-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.watering-form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.watering-form-group label {
+    font-weight: bold;
+    color: #555;
+}
+
+.watering-form-group input[type="text"],
+.watering-form-group input[type="date"],
+.watering-form-group input[type="datetime-local"],
+.watering-form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.watering-save-button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.watering-save-button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .watering-schedule-container {
+        padding: 20px;
+    }
+}
+
+
+/* Health Status Detail Page Styling */
+.health-status-detail-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.health-status-detail h4 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.health-status-detail p {
+    font-size: 1em;
+    color: #555;
+    margin: 10px 0;
+}
+
+.health-status-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
     margin-top: 20px;
 }
 
-.admin-product-table th,
-.admin-product-table td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-.admin-product-table th {
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-}
-
-.admin-product-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Zebra striping for better readability */
-}
-
-.admin-product-table tr:hover {
-    background-color: #f1f1f1; /* Highlight on hover */
-}
-
-.admin-product-actions a {
-    margin: 0 5px;
-}
-
-.admin-add-product-btn {
-    background-color: #28a745; /* Bootstrap success color */
-    color: white;
+.health-btn {
     padding: 10px 15px;
-    border: none;
+    color: #fff;
     border-radius: 5px;
+    font-size: 1em;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
-.admin-add-product-btn:hover {
-    background-color: #218838; /* Darker green on hover */
+.health-edit-btn {
+    background-color: #4CAF50;
+}
+
+.health-edit-btn:hover {
+    background-color: #45a049;
+}
+
+.health-delete-btn {
+    background-color: #f44336;
+}
+
+.health-delete-btn:hover {
+    background-color: #e53935;
+}
+
+.health-back-btn {
+    background-color: #607d8b;
+}
+
+.health-back-btn:hover {
+    background-color: #546e7a;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .health-status-detail-container {
+        padding: 20px;
+    }
+
+    .health-status-actions {
+        flex-direction: column;
+    }
 }
 
 
+/* Edit Health Status Form Styling */
+.edit-health-status-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
-/* Container for the create post section */
-.create-container {
-    margin: auto;
+.edit-health-status-container h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.edit-health-status-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit-health-form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.edit-health-form-group label {
+    font-weight: bold;
+    color: #555;
+}
+
+.edit-health-form-group input[type="text"],
+.edit-health-form-group input[type="date"],
+.edit-health-form-group input[type="datetime-local"],
+.edit-health-form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.edit-health-save-button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-health-save-button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .edit-health-status-container {
+        padding: 20px;
+    }
+}
+
+/* Confirm Delete Health Status Styling */
+.delete-health-status-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.delete-health-status-container h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.delete-health-status-container p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.delete-health-form {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Center vertically */
-    background-color: #f8f9fa; /* Light background for contrast */
+    gap: 15px;
 }
 
-/* Form container styles */
-.form-container {
-    background-color: #ffffff; /* White background for the form */
-    padding: 20px; /* Padding around the form */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    width: 90%; /* Responsive width */
-    max-width: 500px; /* Max width for larger screens */
+.delete-confirm-button {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.delete-confirm-button:hover {
+    background-color: #e53935;
+}
+
+.delete-cancel-button {
+    padding: 10px 20px;
+    background-color: #607d8b;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1em;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.delete-cancel-button:hover {
+    background-color: #546e7a;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .delete-health-status-container {
+        padding: 20px;
+    }
+
+    .delete-health-form {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 
+/* Care Log Detail Page Styling */
+.care-log-detail-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.care-log-detail-container h4 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.care-log-detail-container p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Action Buttons Styling */
+.care-log-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.care-log-edit-button,
+.care-log-delete-button,
+.care-log-back-button {
+    padding: 12px 25px;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.care-log-edit-button {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.care-log-edit-button:hover {
+    background-color: #45a049;
+}
+
+.care-log-delete-button {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.care-log-delete-button:hover {
+    background-color: #e53935;
+}
+
+.care-log-back-button {
+    background-color: #607d8b;
+    color: #fff;
+}
+
+.care-log-back-button:hover {
+    background-color: #546e7a;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .care-log-detail-container {
+        padding: 20px;
+    }
+
+    .care-log-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Edit Care Log Page Styling */
+.edit-care-log-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-care-log-container h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.edit-care-log-container .form-group {
+    margin-bottom: 20px;
+}
+
+.edit-care-log-container .form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.edit-care-log-container .form-actions button,
+.edit-care-log-container .form-actions a {
+    padding: 12px 25px;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Primary and Secondary Button Styles */
+.edit-care-log-container .form-actions .btn-primary {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.edit-care-log-container .form-actions .btn-primary:hover {
+    background-color: #45a049;
+}
+
+.edit-care-log-container .form-actions .btn-secondary {
+    background-color: #607d8b;
+    color: #fff;
+}
+
+.edit-care-log-container .form-actions .btn-secondary:hover {
+    background-color: #546e7a;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .edit-care-log-container {
+        padding: 20px;
+    }
+
+    .edit-care-log-container .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+/* Delete Care Log Page Styling */
+.delete-care-log-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.delete-care-log-container h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.delete-care-log-container form {
+    margin-bottom: 20px;
+}
+
+.delete-care-log-container .btn {
+    padding: 12px 25px;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Danger and Secondary Button Styles */
+.delete-care-log-container .btn-danger {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.delete-care-log-container .btn-danger:hover {
+    background-color: #e53935;
+}
+
+.delete-care-log-container .btn-secondary {
+    background-color: #607d8b;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.delete-care-log-container .btn-secondary:hover {
+    background-color: #546e7a;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .delete-care-log-container {
+        padding: 20px;
+    }
+
+    .delete-care-log-container .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .delete-care-log-container a {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+
+/* Reminder Detail Page Styling */
+.reminder-detail-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.reminder-detail-container h4 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.reminder-detail-container p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.reminder-detail-container p strong {
+    color: #333;
+}
+
+/* Action Buttons Styling */
+.reminder-actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.reminder-actions .btn {
+    padding: 12px 25px;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+/* Primary Button Styling */
+.reminder-actions .btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.reminder-actions .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Danger Button Styling */
+.reminder-actions .btn-danger {
+    background-color: #f44336;
+    color: white;
+}
+
+.reminder-actions .btn-danger:hover {
+    background-color: #e53935;
+}
+
+/* Secondary Button Styling */
+.reminder-actions .btn-secondary {
+    background-color: #607d8b;
+    color: white;
+}
+
+.reminder-actions .btn-secondary:hover {
+    background-color: #546e7a;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .reminder-detail-container {
+        padding: 20px;
+    }
+
+    .reminder-actions .btn {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+
+/* Edit Reminder Page Styling */
+.edit-reminder-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.edit-reminder-container h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.reminder-form .form-group {
+    margin-bottom: 20px;
+}
+
+.reminder-form .form-group label {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.reminder-form .form-group input,
+.reminder-form .form-group textarea,
+.reminder-form .form-group select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.reminder-form .form-actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.reminder-form .form-actions .btn {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Primary Button Styling */
+.reminder-form .form-actions .btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.reminder-form .form-actions .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Secondary Button Styling */
+.reminder-form .form-actions .btn-secondary {
+    background-color: #607d8b;
+    color: white;
+}
+
+.reminder-form .form-actions .btn-secondary:hover {
+    background-color: #546e7a;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .edit-reminder-container {
+        padding: 20px;
+    }
+
+    .reminder-form .form-actions .btn {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+
+/* Delete Reminder Page Styling */
+.delete-reminder-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.delete-reminder-container h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.delete-form .form-actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.delete-form .form-actions .btn {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Danger Button Styling */
+.delete-form .form-actions .btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-form .form-actions .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Secondary Button Styling */
+.delete-form .form-actions .btn-secondary {
+    background-color: #607d8b;
+    color: white;
+}
+
+.delete-form .form-actions .btn-secondary:hover {
+    background-color: #546e7a;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .delete-reminder-container {
+        padding: 20px;
+    }
+
+    .delete-form .form-actions .btn {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+
+/* Watering Schedule Detail Page Styling */
+.watering-schedule-detail {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.watering-schedule-detail h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.watering-schedule-detail p {
+    font-size: 1.2em;
+    color: #555;
+    margin: 10px 0;
+}
+
+.watering-schedule-detail .btn {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Edit and Delete Button Styling */
+.watering-schedule-detail .btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.watering-schedule-detail .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.watering-schedule-detail .btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.watering-schedule-detail .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .watering-schedule-detail {
+        padding: 20px;
+    }
+
+    .watering-schedule-detail .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+/* Edit Watering Schedule Page Styling */
+.edit-watering-schedule {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-watering-schedule h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.edit-watering-schedule .form-group {
+    margin-bottom: 20px;
+}
+
+.edit-watering-schedule .form-group label {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.edit-watering-schedule .form-group input,
+.edit-watering-schedule .form-group select,
+.edit-watering-schedule .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.edit-watering-schedule .btn {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Save Changes Button */
+.edit-watering-schedule .btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.edit-watering-schedule .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Cancel Button */
+.edit-watering-schedule .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    margin-left: 10px;
+}
+
+.edit-watering-schedule .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .edit-watering-schedule {
+        padding: 20px;
+    }
+
+    .edit-watering-schedule .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
 
 

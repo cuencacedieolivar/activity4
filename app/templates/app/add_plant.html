@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="add-plant-container">
+    <h1>Add a new plant</h1>
+    <form method="POST" enctype="multipart/form-data" class="add-plant-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="add-plant-button">Add Plant</button>
+    </form>
+  </div>
+{% endblock content %}

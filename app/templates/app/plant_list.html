@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <h1>Your Plants</h1>
+  <a href="{% url 'add_plant' %}">Add a new plant</a>
+
+  <form method="GET" action="{% url 'search_plants' %}">
+    <input type="text" name="q" value="{{ query }}" placeholder="Search plants...">
+    <button type="submit">Search</button>
+  </form>
+
+  <div class="list-plants">
+    {% for plant in plants %}
+      {% if plant.visibility == 'public' or plant.user == user %}
+        <div class="plant-box">
+          <a href="{% url 'plant_detail' plant.id %}">
+            {% if plant.image %}
+              <img src="{{ plant.image.url }}" alt="{{ plant.name }}">
+            {% else %}
+              <p>No image available</p>
+            {% endif %}
+            <p>{{ plant.name }}</p>
+          </a>
+          (<a href="{% url 'delete_plant' plant.id %}">Delete</a>)
+        </div>
+      {% endif %}
+    {% empty %}
+      <p>No plants available.</p>
+    {% endfor %}
+  </div>
+{% endblock content %}

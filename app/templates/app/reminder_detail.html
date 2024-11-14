@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="reminder-detail-container">
+    <h4>{{ reminder.plant.name }} - Reminder Details</h4>
+    <p><strong>Reminder:</strong> {{ reminder.reminder_text }}</p>
+    <p><strong>Reminder Date:</strong> {{ reminder.reminder_date }}</p>
+    <p><strong>Status:</strong> {{ reminder.is_completed|yesno:"Completed,Pending" }}</p>
+  </div>
+
+  <!-- Edit, Delete and Back Links with Icons -->
+  <div class="reminder-actions">
+    {% if request.user == plant.user or request.user.is_superuser %}
+      <!-- Edit Reminder Button with Icon -->
+      <a href="{% url 'edit_reminder' plant_id=reminder.plant.id reminder_id=reminder.id %}" class="btn btn-primary" title="Edit Reminder">
+        <i class="fas fa-edit"></i>
+      </a>
+      <!-- Delete Reminder Button with Icon -->
+      <a href="{% url 'delete_reminder' plant_id=reminder.plant.id reminder_id=reminder.id %}" class="btn btn-danger" title="Delete Reminder">
+        <i class="fas fa-trash-alt"></i>
+      </a>
+    {% endif %}
+    <!-- Back to Plant Details Button with Icon -->
+    <a href="{% url 'plant_detail' reminder.plant.id %}" class="btn btn-secondary" title="Back to Plant Details">
+      <i class="fas fa-arrow-left"></i> Back to Plant Details
+    </a>
+  </div>
+{% endblock %}

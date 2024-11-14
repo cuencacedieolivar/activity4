@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="watering-schedule-detail">
+    <h2>Watering Schedule Details</h2>
+    <p><strong>Frequency:</strong> {{ schedule.water_frequency }}</p>
+    <p><strong>Last Watered:</strong> {{ schedule.last_watered }}</p>
+    <p><strong>Next Watering:</strong> {{ schedule.next_watering }}</p>
+
+    <div class="health-status-actions">
+       {% if request.user == plant.user or request.user.is_superuser %}
+        {% if schedule %}
+          <!-- Edit Schedule Button with Icon -->
+          <a href="{% url 'edit_watering_schedule' schedule.id %}" class="btn btn-primary">
+            <i class="fas fa-edit"></i>
+          </a>
+        {% endif %}
+        <!-- Delete Schedule Button with Icon -->
+        <a href="{% url 'watering_schedule_delete' plant_id=schedule.plant.id schedule_id=schedule.id %}" class="btn btn-danger">
+          <i class="fas fa-trash-alt"></i>
+        </a>
+      {% endif %}
+           <a href="{% url 'plant_detail' schedule.plant.id %}" class="health-btn health-back-btn">
+        <i class="fas fa-arrow-left"></i> Back to Plant Details
+      </a>
+    </div>
+
+  </div>
+{% endblock %}

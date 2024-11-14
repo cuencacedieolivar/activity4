@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="plant-update-container">
+    <h1>Update Plant: {{ plant.name }}</h1>
+
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Save Changes</button>
+    </form>
+
+    <a href="{% url 'plant_detail' plant.id %}">Cancel</a>
+  </div>
+{% endblock content %}

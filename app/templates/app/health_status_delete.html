@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="delete-health-status-container">
+    <h2>Confirm Delete Health Status</h2>
+    <p>Are you sure you want to delete this health status for "{{ object.plant.name }}"?</p>
+    <form method="post" class="delete-health-form">
+      {% csrf_token %}
+      <button type="submit" class="delete-confirm-button">Confirm Delete</button>
+      <a href="{% url 'health_status_detail' pk=object.id %}" class="delete-cancel-button">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

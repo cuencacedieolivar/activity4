@@ -1,0 +1,79 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="plant-details-container">
+    <div class="plant-description">
+      <h4>{{ plant.name }} Details</h4>
+      <p>Type: {{ plant.type }}</p>
+      <p>Care Instructions: {{ plant.care_instructions }}</p>
+
+      <h2>Health Updates</h2>
+      <ul class="details-list">
+        {% for update in health_updates %}
+          <li>
+            <a href="{% url 'health_status_detail' update.id %}">{{ update.status }} - {{ update.update_time }}</a>
+          </li>
+        {% empty %}
+          <p>No health updates available.</p>
+        {% endfor %}
+      </ul>
+
+      <h2>Care Logs</h2>
+      <ul class="details-list">
+        {% for log in care_logs %}
+          <li>
+            <a href="{% url 'care_log_detail' log.id %}">{{ log.action }} - {{ log.date }}</a>
+          </li>
+        {% empty %}
+          <p>No care logs available.</p>
+        {% endfor %}
+      </ul>
+
+      <h2>Reminders</h2>
+      <ul class="details-list">
+        {% for reminder in reminders %}
+          <li>
+            <a href="{% url 'reminder_detail' reminder.id %}">{{ reminder.task }} - {{ reminder.reminder_time }}</a>
+            {% if not reminder.is_completed %}
+              <form method="post" action="{% url 'complete_reminder' reminder.id %}" class="reminder-form">
+                {% csrf_token %}
+                <button type="submit">Mark as complete</button>
+              </form>
+            {% else %}
+              <span class="completed">Completed</span>
+            {% endif %}
+          </li>
+        {% empty %}
+          <p>No reminders set.</p>
+        {% endfor %}
+      </ul>
+
+      <h2>Watering Schedule</h2>
+      <ul class="details-list">
+        {% for schedule in watering_schedules %}
+          <li>
+            <a href="{% url 'watering_schedule_detail' schedule.id %}">
+              Frequency: {{ schedule.water_frequency }}<br>
+              Last watered: {{ schedule.last_watered }}<br>
+              Next watering: {{ schedule.next_watering }}
+            </a>
+          </li>
+        {% empty %}
+          <p>No watering schedule set.</p>
+        {% endfor %}
+      </ul>
+
+      <!-- Add action links -->
+      <div class="action-links">
+        {% if request.user == plant.user or request.user.is_superuser %}
+            <a href="{% url 'add_health_status' plant.id %}">Add health status update</a><br>
+            <a href="{% url 'add_care_log' plant.id %}">Add care log</a><br>
+            <a href="{% url 'add_reminder' plant.id %}">Set reminder</a><br>
+            <a href="{% url 'add_watering_schedule' plant.id %}">Add watering schedule</a><br>
+            <a href="{% url 'update_plant' plant.id %}" class="btn-update-plant">Update Plant</a>
+            <a href="{% url 'delete_plant' plant.id %}" class="btn-delete-plant">Delete Plant</a>
+        {% endif %}
+    </div>
+    </div>
+  </div>
+{% endblock content %}

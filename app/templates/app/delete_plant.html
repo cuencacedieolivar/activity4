@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <h1>Are you sure you want to delete "{{ plant.name }}"?</h1>
+
+  <p>Once deleted, this action cannot be undone.</p>
+
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit">Confirm Deletion</button>
+    <a href="{% url 'plant_list' %}">Cancel</a>
+  </form>
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="health-status-container">
+    <h1>Add Health Status Update</h1>
+    <form method="post" class="health-status-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="health-status-button">Add Update</button>
+    </form>
+  </div>
+{% endblock %}

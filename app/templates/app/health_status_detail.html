@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="health-status-detail-container">
+    <div class="health-status-detail">
+      <h4>{{ health_status.plant.name }} - Health Status Details</h4>
+      <p><strong>Status:</strong> {{ health_status.status }}</p>
+      <p><strong>Update Time:</strong> {{ health_status.update_time }}</p>
+      <p><strong>Notes:</strong> {{ health_status.notes }}</p>
+    </div>
+
+    <!-- Edit and Delete Links with Icons -->
+    <div class="health-status-actions">
+      {% if request.user == plant.user or request.user.is_superuser %}
+        <!-- Edit Health Status Button with Icon -->
+        <a href="{% url 'edit_health_status' plant_id=health_status.plant.id status_id=health_status.id %}" class="health-btn health-edit-btn" title="Edit Health Status">
+          <i class="fas fa-edit"></i>
+        </a>
+        <!-- Delete Health Status Button with Icon -->
+        <a href="{% url 'health_status_delete' plant_id=health_status.plant.id status_id=health_status.id %}" class="health-btn health-delete-btn" title="Delete Health Status">
+          <i class="fas fa-trash-alt"></i>
+        </a>
+      {% endif %}
+      <a href="{% url 'plant_detail' health_status.plant.id %}" class="health-btn health-back-btn">
+        <i class="fas fa-arrow-left"></i> Back to Plant Details
+      </a>
+    </div>
+  </div>
+{% endblock %}

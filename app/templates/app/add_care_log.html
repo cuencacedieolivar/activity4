@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="care-log-container">
+    <h1>Add Care Log</h1>
+    <form method="post" class="care-log-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="care-log-button">Add Log</button>
+    </form>
+  </div>
+{% endblock %}

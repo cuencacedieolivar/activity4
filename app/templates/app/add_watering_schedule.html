@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="watering-schedule-container">
+    <h2>Add Watering Schedule for {{ plant.name }}</h2>
+    <form method="post" class="watering-schedule-form">
+      {% csrf_token %}
+      <div class="watering-form-group">
+          <label for="{{ form.water_frequency.id_for_label }}">Water Frequency:</label>
+          {{ form.water_frequency }}
+      </div>
+      <div class="watering-form-group">
+          <label for="{{ form.last_watered.id_for_label }}">Last Watered:</label>
+          {{ form.last_watered }}
+      </div>
+      <div class="watering-form-group">
+          <label for="{{ form.next_watering.id_for_label }}">Next Watering:</label>
+          {{ form.next_watering }}
+      </div>
+      <button type="submit" class="watering-save-button">Save</button>
+    </form>
+  </div>
+{% endblock %}

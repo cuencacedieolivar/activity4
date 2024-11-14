@@ -65,7 +65,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'app.context_processors.cart_count',
             ],
         },
     },
@@ -91,6 +90,7 @@ LOGIN_URL = 'login'  # URL where users will be redirected if they're not logged 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -115,7 +115,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# Set the default timezone to your desired timezone (e.g., 'Asia/Manila' for the Philippines)
+TIME_ZONE = 'Asia/Manila'
 
 USE_I18N = True
 
