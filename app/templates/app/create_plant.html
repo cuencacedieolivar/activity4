@@ -3,11 +3,11 @@
 {% block content %}
 <div class="plant-creation-container">
     <div class="plant-creating-box">
-        <form action="{% url 'update_plant' plant.pk %}" method="post" enctype="multipart/form-data">
-            <h1>Update Plant</h1>
+        <form action="{% url 'create_plant' %}" method="post" enctype="multipart/form-data">
+            <h1>Create Plant</h1>
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Update" class="submission-button">
+            <input type="submit" value="Save" class="submission-button">
         </form>
     </div>
 </div>

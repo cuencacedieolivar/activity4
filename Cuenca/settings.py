@@ -83,9 +83,9 @@ DATABASES = {
     }
 }
 
-LOGIN_REDIRECT_URL = 'home'  # Redirect to the homepage or any other page after login
-LOGOUT_REDIRECT_URL = 'login'  # Redirect to the login page after logout
-LOGIN_URL = 'login'  # URL where users will be redirected if they're not logged in
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

@@ -6,29 +6,28 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
+    <header class="site-header">
+        <h1>Evergreen Essentials</h1>
+        <p>Your portal to a greener world</p>
+    </header>
+    <div class="login-wrapper">
+        <div class="login-card">
+            <h2>Welcome Back</h2>
+            <p>Please log in to your account</p>
 
-        {% if messages %}
-            {% for message in messages %}
-                {% if message.tags == "error" %}  {# Customize according to your tags #}
-                    <p class="error-message">{{ message }}</p>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <label for="username">Username or Email:</label>
+                {{ form.username }}
 
-        <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            <label for="username">Username or Email:</label>
-            {{ form.username }}
+                <label for="password">Password:</label>
+                {{ form.password }}
 
-            <label for="password">Password:</label>
-            {{ form.password }}
+                <button type="submit" class="btn-login">Log In</button>
+            </form>
 
-            <button type="submit">Log In</button>
-        </form>
-
-        <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+            <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+        </div>
     </div>
 </body>
 </html>
