@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <h1>Edit Watering Schedule</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_water_frequency">Water Frequency:</label>
+        <input type="text" name="water_frequency" id="id_water_frequency" value="{{ schedule.water_frequency }}" required><br>
+        
+        <label for="id_last_watered">Last Watered:</label>
+        <input type="date" name="last_watered" id="id_last_watered" value="{{ schedule.last_watered|date:'Y-m-d' }}" required><br>
+        
+        <label for="id_next_watering">Next Watering:</label>
+        <input type="date" name="next_watering" id="id_next_watering" value="{{ schedule.next_watering|date:'Y-m-d' }}" required><br>
+        
+        <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'watering_schedule_list' %}">Cancel</a>
+{% endblock content %}

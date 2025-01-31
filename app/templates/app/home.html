@@ -1,11 +1,15 @@
 {% extends 'app/base.html' %}
 {% load static %}
+
 {% block content %}
 
 
-{% endblock content %}
+    <div class="home-container">
+        <h1 class="home-title">Welcome to Plant Care Manager</h1>
+        <p class="home-description">Track your plants, care for them, and set reminders to keep them healthy and thriving.</p>
+        <a href="{% url 'about' %}" class="leaf-button">
+            Explore Plants
+        </a>
+    </div>
 
-
-
-
-
+{% endblock %}

@@ -1,7 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.urls import reverse
-
+from django.conf import settings
 
 
 
@@ -9,7 +8,7 @@ class Plant(models.Model):
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
     care_instructions = models.TextField(blank=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='plant_images/', blank=True, null=True)
 
 
@@ -28,13 +27,12 @@ class HealthStatus(models.Model):
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return self.plant.name
+        return self.plant
 
-class CustomUser(User):
-    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
+    def get_absolute_url(self):
+        return reverse('health_status_detail', kwargs={'pk': self.pk})
 
-    def __str__(self):
-        return self.username
+
 
 
 class CareLog(models.Model):
@@ -61,7 +59,10 @@ class WateringSchedule(models.Model):
     next_watering = models.DateField(blank=True, null=True)
 
     def __str__(self):
-        return self.plant.name
+        return self.water_frequency
+
+    def get_absolute_url(self):
+        return reverse('watering_schedule_detail', kwargs={'pk': self.pk})
 
 class Reminder(models.Model):
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
@@ -70,4 +71,7 @@ class Reminder(models.Model):
     is_completed = models.BooleanField(default=False)
 
     def __str__(self):
-        return  self.plant.name
+        return self.task
+
+    def get_absolute_url(self):
+        return reverse('reminder_detail', kwargs={'pk': self.pk})

@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <h1>Edit Care Log</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_action">Action:</label>
+        <input type="text" name="action" id="id_action" value="{{ care.action }}" required><br>
+        
+        <label for="id_notes">Notes:</label>
+        <textarea name="notes" id="id_notes" required>{{ care.notes }}</textarea><br>
+        
+        <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'care_log_list' %}">Cancel</a>
+{% endblock content %}

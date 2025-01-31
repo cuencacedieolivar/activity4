@@ -1,0 +1,10 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<div class="care-log-container">
+    <h1>{{ care.plant.name }} - {{ care.action }}</h1>
+    <p>Notes: {{ care.notes }}</p>
+    <a href="{% url 'care_log_update' care.pk %}">Edit</a>
+    <a href="{% url 'care_log_delete' care.pk %}">Delete</a>
+    <a href="{% url 'care_log_list' %}">Back to List</a>
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+{% block content %}
+  <div class="health-status-detail-container">
+    <h1 class="health-status-title">{{ status.plant.name }} - {{ status.status }}</h1>
+
+    <p class="health-status-notes">Notes: {{ status.notes }}</p>
+
+    <div class="health-status-buttons">
+        <a href="{% url 'health_status_update' status.pk %}" class="health-status-btn health-status-edit">Edit</a>
+        <a href="{% url 'health_status_delete' status.pk %}" class="health-status-btn health-status-delete">Delete</a>
+        <a href="{% url 'health_status_list' %}" class="health-status-btn health-status-back">Back to List</a>
+    </div>
+</div>
+{% endblock content %}

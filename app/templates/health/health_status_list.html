@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+{% block content %}
+   <div class="health-status-container">
+    <h1 class="health-status-title">Health Status List</h1>
+
+    <ul class="health-status-list">
+        {% for status in statuses %}
+            <li class="health-status-item">
+                <img src="{{ status.plant.image.url }}" alt="{{ status.plant.name }}" class="health-status-image">
+                <a href="{% url 'health_status_detail' status.pk %}" class="health-status-link">
+                    {{ status.plant.name }} - {{ status.status }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'health_status_create' %}" class="add-health-status-btn">Add New Health Status</a>
+</div>
+{% endblock content %}

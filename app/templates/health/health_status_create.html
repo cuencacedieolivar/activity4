@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <h1>Add Health Status</h1>
+    <form action="{% url 'health_status_create' %}" method="post">
+        {% csrf_token %}
+
+        <label for="id_plant">Plant:</label>
+        <select name="plant" id="id_plant" required>
+            <option value="" disabled {% if not selected_plant %} selected {% endif %}>Select a plant</option>
+            {% for plant in plants %}
+                <option value="{{ plant.id }}" {% if selected_plant and plant.id == selected_plant.id %} selected {% endif %}>{{ plant.name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="id_status">Status:</label>
+        <input type="text" name="status" id="id_status" required><br>
+
+        <label for="id_notes">Notes:</label>
+        <textarea name="notes" id="id_notes" required></textarea><br>
+
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'health_status_list' %}">Cancel</a>
+{% endblock content %}

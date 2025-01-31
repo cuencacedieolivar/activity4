@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <h1>Add a New Plant</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="id_name">Name:</label>
+        <input type="text" name="name" id="id_name" required><br>
+
+        <label for="id_type">Type:</label>
+        <input type="text" name="type" id="id_type" required><br>
+
+        <label for="id_care_instructions">Care Instructions:</label>
+        <textarea name="care_instructions" id="id_care_instructions" required></textarea><br>
+
+        <label for="id_image">Image:</label>
+        <input type="file" name="image" id="id_image"><br>
+
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'plant_list' %}">Cancel</a>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <h1>Watering Schedule List</h1>
+    <ul>
+        {% for schedule in schedules %}
+            <li><a href="{% url 'watering_schedule_detail' schedule.pk %}">{{ schedule.plant.name }} - {{ schedule.water_frequency }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'watering_schedule_create' %}">Add New Watering Schedule</a>
+{% endblock content %}

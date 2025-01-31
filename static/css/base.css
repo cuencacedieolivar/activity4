@@ -1,207 +1,1018 @@
-/* General Reset */
-* {
+/* Universal Box-sizing */
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* General Reset */
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    margin: 0;
-    padding: 0;
+    background-color: #f4f8f4;
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #2d6a4f; /* Deep plant green */
+    padding: 15px;
+    font-size: 16px;
+    color: white;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: #388e3c; /* Lighter green */
+    border-radius: 5px;
+}
+
+.navbar .user-menu ul {
+    display: none;
+}
+
+.navbar .user-menu:hover ul {
+    display: block;
+}
+
+.navbar .dropdown-item {
+    background-color: #388e3c;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
 }
 
 /* Dashboard Container */
 .dashboard-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-between;
-}
-
-/* Header Section */
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 20px;
-    background-color: #81c784;
-    color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.site-header h1 {
-    font-size: 2.5rem;
-    font-family: 'Dancing Script', cursive;
-    margin: 0;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-}
-
-.site-header p {
-    font-size: 1rem;
-    font-style: italic;
-    margin: 5px 0 0;
-}
-
-/* Navigation Links */
-.right-header a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.right-header a:hover {
-    color: #c8e6c9;
-}
-
-/* Profile Dropdown */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.profile-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid #ffffff;
-    transition: transform 0.3s;
-}
-
-.profile-image:hover {
-    transform: scale(1.1);
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #ffffff;
-    min-width: 150px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 8px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.logout-link {
-    display: block;
-    padding: 10px;
+/* Home Login Section */
+.home-login {
+    background-color: #edf2e3;
+    padding: 20px;
     text-align: center;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.home-login .btn-submit {
+    background-color: #388e3c; /* Plant green */
+    color: white;
+    padding: 10px 20px;
     text-decoration: none;
-    color: #d32f2f;
-    font-weight: bold;
-    border-top: 1px solid #e0e0e0;
-    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.logout-link:hover {
-    background-color: #fce4ec;
-    color: #b71c1c;
+.home-login .btn-submit:hover {
+    background-color: #2d6a4f;
 }
 
-.content-container {
-    flex: 1;
-    padding: 20px;
-    background-color: #f1f8e9;
+.home-login .not-logged-in {
+    font-size: 14px;
+    color: #777;
 }
 
-button {
-    background: linear-gradient(to right, #4caf50, #81c784);
-    color: #ffffff;
+/* Plant-Themed Form and Button Styles */
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], textarea {
+    background-color: #f4f8f4;
+    border: 2px solid #388e3c;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"], button {
+    background-color: #388e3c;
+    color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background: linear-gradient(to right, #388e3c, #66bb6a);
+input[type="submit"]:hover, button:hover {
+    background-color: #2d6a4f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .home-login {
+        padding: 15px;
+    }
+
+    .navbar ul li {
+        margin-bottom: 10px;
+    }
 }
 
 
 
-.plant-container {
-    padding: 20px;
-    background-color: #f1f8e9;
-    color: #2e7d32;
+
+
+
+/* Login Container */
+.login-container {
+    background-color: #f4f8f4;
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.plant-page h1 {
+.login-title {
+    font-size: 28px;
+    color: #2d6a4f;
+    margin-bottom: 20px;
     text-align: center;
-    font-size: 2.5rem;
-    font-family: 'Dancing Script', cursive;
-    color: #1b5e20;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form Group Styling */
+.form-group {
     margin-bottom: 20px;
 }
 
-.plant-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+/* Form Label */
+.form-label {
+    font-size: 16px;
+    color: #388e3c;
+    margin-bottom: 5px;
 }
 
-.plant-card {
-    background: #ffffff;
-    border: 2px solid #81c784;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+/* Form Input Fields */
+.form-control {
+    background-color: #f4f8f4;
+    border: 2px solid #388e3c;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* Submit Button */
+.btn-submit {
+    background-color: #388e3c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #2d6a4f;
+}
+
+/* Error Messages */
+.text-danger {
+    color: #d32f2f;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Sign Up Prompt */
+.sign-up-prompt {
     text-align: center;
+    font-size: 16px;
+    color: #333;
 }
 
-.plant-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-
-.plant-image img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-bottom: 2px solid #81c784;
-}
-
-.no-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 180px;
-    background-color: #e0f2f1;
-    color: #1b5e20;
-    font-size: 1rem;
-    font-weight: bold;
-    border-bottom: 2px solid #81c784;
-}
-
-
-.plant-title h4 {
-    margin: 10px 0;
-    font-size: 1.2rem;
-    font-weight: bold;
+.sign-up-link {
+    text-decoration: none;
     color: #388e3c;
 }
 
-.plant-title a {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s;
+.sign-up-link:hover {
+    text-decoration: underline;
 }
 
-.plant-title a:hover {
-    color: #1b5e20;
+
+
+
+
+
+
+
+/* Sign Up Container */
+.signup-container {
+    background-color: #f4f8f4;
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signup-title {
+    font-size: 28px;
+    color: #2d6a4f;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Form Label */
+.form-label {
+    font-size: 16px;
+    color: #388e3c;
+    margin-bottom: 5px;
+}
+
+/* Form Input Fields */
+.form-control {
+    background-color: #f4f8f4;
+    border: 2px solid #388e3c;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* Submit Button */
+.btn-submit {
+    background-color: #388e3c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #2d6a4f;
+}
+
+/* Error Messages */
+.text-danger {
+    color: #d32f2f;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Login Prompt */
+.login-prompt {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.login-link {
+    text-decoration: none;
+    color: #388e3c;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+/* Home Page Container */
+.home-container {
+    background-color: #f0f8f0;
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 100px auto;
+}
+
+/* Home Title */
+.home-title {
+    font-size: 36px;
+    color: #388e3c;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+}
+
+/* Home Description */
+.home-description {
+    font-size: 18px;
+    color: #2d6a4f;
+    margin-bottom: 30px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Explore Button */
+.leaf-button {
+    display: inline-block;
+    background-color: #388e3c;
+    color: white;
+    padding: 15px 25px;
+    font-size: 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.leaf-button:hover {
+    background-color: #2d6a4f;
+    transform: translateY(-3px);
+}
+
+.leaf-button:active {
+    background-color: #1b5e20;
+    transform: translateY(1px);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .home-container {
+        padding: 30px;
+    }
+
+    .home-title {
+        font-size: 28px;
+    }
+
+    .home-description {
+        font-size: 16px;
+    }
+
+    .leaf-button {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+
+
+
+/* About Page Container */
+.about-container {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 50px auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Title Styling */
+.about-container h1 {
+    font-size: 36px;
+    color: #388e3c;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Subtitle Styling */
+.about-container h2 {
+    font-size: 28px;
+    color: #2d6a4f;
+    margin-top: 30px;
+}
+
+/* Paragraph Styling */
+.about-container p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* List Styling */
+.about-container ul {
+    list-style-type: disc;
+    margin-left: 40px;
+    font-size: 18px;
+    color: #388e3c;
+}
+
+.about-container ul li {
+    margin-bottom: 10px;
+}
+
+/* Green Plant Accent */
+strong {
+    color: #388e3c;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 20px;
+    }
+
+    .about-container h1 {
+        font-size: 28px;
+    }
+
+    .about-container h2 {
+        font-size: 24px;
+    }
+
+    .about-container p, .about-container ul {
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+
+/* Contact Us Container */
+.contact-container {
+    background-color: #f0f0f0;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 50px auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Title Styling */
+.contact-container h1 {
+    font-size: 36px;
+    color: #388e3c;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Paragraph Styling */
+.contact-container p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Contact Details */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Individual Contact Items */
+.contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #388e3c;
+    gap: 15px;
+}
+
+/* Icons Styling */
+.contact-item i {
+    font-size: 24px;
+    color: #388e3c;
+}
+
+/* Contact Links */
+.contact-item a {
+    color: #388e3c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 20px;
+    }
+
+    .contact-container h1 {
+        font-size: 28px;
+    }
+
+    .contact-container p {
+        font-size: 16px;
+    }
+
+    .contact-item {
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+
+
+
+/* Plant List Table Styles */
+.plant-list table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Table Header Styling */
+.plant-list th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Table Cell Styling */
+.plant-list td {
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternating Row Colors */
+.plant-list tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover Effect for Rows */
+.plant-list tr:hover {
+    background-color: #e2f7e2;
+    cursor: pointer;
+}
+
+/* Image Styling */
+.plant-list td img {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Action Buttons */
+.plant-list td a {
+    margin: 5px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.plant-list td a:hover {
+    opacity: 0.8;
+}
+
+/* Specific Button Colors */
+.plant-list .btn-success {
+    background-color: #28a745;
+}
+
+.plant-list .btn-info {
+    background-color: #17a2b8;
+}
+
+.plant-list .btn-warning {
+    background-color: #ffc107;
+}
+
+.plant-list .btn-primary {
+    background-color: #007bff;
+}
+
+.plant-list .btn-secondary {
+    background-color: #6c757d;
+}
+
+/* Add New Plant Button Styling */
+.plant-list a.btn-primary {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.plant-list a.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .plant-list th, .plant-list td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .plant-list td img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .plant-list a.btn-primary {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+
+
+
+
+
+.image-detail {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.img-container {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.plant-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.plant-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.table {
+    width: 100%;
+    margin-top: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: #17a2b8;
+    color: white;
+}
+
+.table tbody tr:hover {
+    background: #e9ecef;
+}
+
+.empty-message {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    padding: 10px;
+}
+
+.action-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    margin: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.btn-warning {
+    background: #f39c12;
+    border-color: #e67e22;
+    color: white;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    border-color: #c0392b;
+    color: white;
+}
+
+.btn-secondary {
+    background: #7f8c8d;
+    border-color: #95a5a6;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container styling */
+.health-status-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.health-status-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* List styling */
+.health-status-list {
+    list-style: none;
+    padding: 0;
+}
+
+.health-status-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.health-status-item:hover {
+    transform: scale(1.02);
+    background: #eef7f3;
+}
+
+/* Image styling */
+.health-status-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    margin-right: 15px;
+}
+
+/* Link styling */
+.health-status-link {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c7a7b;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.health-status-link:hover {
+    color: #205f60;
+}
+
+/* Button styling */
+.add-health-status-btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 12px 18px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.add-health-status-btn:hover {
+    background: #0056b3;
+}
+
+
+
+
+
+
+
+
+/* Container styling */
+.health-status-detail-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Title styling */
+.health-status-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Notes section */
+.health-status-notes {
+    font-size: 18px;
+    color: #555;
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Button container */
+.health-status-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Button styling */
+.health-status-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.health-status-edit { background: #ffc107; color: #333; }
+.health-status-edit:hover { background: #e0a800; }
+
+.health-status-delete { background: #dc3545; color: white; }
+.health-status-delete:hover { background: #c82333; }
+
+.health-status-back { background: #007bff; color: white; }
+.health-status-back:hover { background: #0056b3; }
+.health-status-back:hover { background: #0056b3; }
+
+
+
+/* Container styling for Care Log */
+.care-log-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.care-log-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* List styling */
+.care-log-list {
+    list-style: none;
+    padding: 0;
+}
+
+.care-log-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.care-log-item:hover {
+    transform: scale(1.02);
+    background: #eef7f3;
+}
+
+/* Image styling for carelog items */
+.care-log-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    margin-right: 15px;
+}
+
+/* Link styling for carelog items */
+.care-log-link {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c7a7b;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.care-log-link:hover {
+    color: #205f60;
+}
+
+/* Add Care Log Button styling */
+.add-care-log-btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 12px 18px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.add-care-log-btn:hover {
+    background: #0056b3;
 }

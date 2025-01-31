@@ -1,0 +1,121 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="card shadow-sm p-4">
+        <div class="image-detail text-center">
+            {% if plant.image %}
+                <img src="{{ plant.image.url }}" alt="{{ plant.name }}" class="plant-img">
+            {% endif %}
+        </div>
+
+        <div class="text-center">
+            <h1>{{ plant.name }}</h1>
+            <p><strong>Type:</strong> {{ plant.type }}</p>
+            <p><strong>Care Instructions:</strong> {{ plant.care_instructions }}</p>
+        </div>
+
+        <!-- Health Status Section -->
+        <div class="mt-4">
+            <h2 class="text-center">Health Status</h2>
+            {% if plant.healthstatus_set.exists %}
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Status</th>
+                                <th>Updated At</th>
+                                <th>Notes</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for status in plant.healthstatus_set.all %}
+                                <tr>
+                                    <td>{{ status.status }}</td>
+                                    <td>{{ status.update_time }}</td>
+                                    <td>{{ status.notes }}</td>
+                                    <td><a href="{% url 'health_status_detail' status.pk %}" class="btn btn-info btn-sm">View</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="empty-message text-center">No health status updates available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Care Log Section -->
+        <div class="mt-4">
+            <h2 class="text-center">Care Log</h2>
+            {% if plant.carelog_set.exists %}
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Action</th>
+                                <th>Date</th>
+                                <th>Notes</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for log in plant.carelog_set.all %}
+                                <tr>
+                                    <td>{{ log.action }}</td>
+                                    <td>{{ log.date }}</td>
+                                    <td>{{ log.notes }}</td>
+                                    <td><a href="{% url 'care_log_detail' log.pk %}" class="btn btn-info btn-sm">View</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="empty-message text-center">No care logs available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Watering Schedule Section -->
+        <div class="mt-4">
+            <h2 class="text-center">Watering Schedule</h2>
+            {% if plant.wateringschedule_set.exists %}
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Water Frequency</th>
+                                <th>Last Watered</th>
+                                <th>Next Watering</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for schedule in plant.wateringschedule_set.all %}
+                                <tr>
+                                    <td>{{ schedule.water_frequency }}</td>
+                                    <td>{{ schedule.last_watered }}</td>
+                                    <td>{{ schedule.next_watering }}</td>
+                                    <td><a href="{% url 'watering_schedule_detail' schedule.pk %}" class="btn btn-info btn-sm">View</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="empty-message text-center">No watering schedule available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="text-center mt-4">
+            <a href="{% url 'plant_update' plant.pk %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'plant_delete' plant.pk %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'plant_list' %}" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

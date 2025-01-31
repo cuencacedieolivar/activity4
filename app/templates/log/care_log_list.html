@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <h1>Care Log List</h1>
+    <ul class="care-log-list">
+        {% for care in cares %}
+            <li><a href="{% url 'care_log_detail' care.pk %}">{{ care.plant.name }} - {{ care.action }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'care_log_create' %}">Add New Care Log</a>
+
+{% endblock content %}

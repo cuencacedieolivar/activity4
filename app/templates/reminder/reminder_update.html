@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h2>Update Reminder</h2>
+<form method="post">
+    {% csrf_token %}
+    
+    <label for="id_task">Task:</label>
+    <input type="text" name="task" id="id_task" class="form-control" value="{{ form.task.value }}">
+
+    <label for="id_reminder_time">Reminder Time:</label>
+    <input type="datetime-local" name="reminder_time" id="id_reminder_time" class="form-control" value="{{ form.reminder_time.value|date:'Y-m-d\TH:i' }}">
+
+    <label for="id_is_completed">Completed:</label>
+    <input type="checkbox" name="is_completed" id="id_is_completed" {% if form.is_completed.value %}checked{% endif %}>
+
+    <br>
+    <button type="submit" class="btn btn-success">Update</button>
+    <a href="{% url 'reminder_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock content %}

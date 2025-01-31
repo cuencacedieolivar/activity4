@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h2>Reminder Details</h2>
+<p><strong>Task:</strong> {{ reminder.task }}</p>
+<p><strong>Reminder Time:</strong> {{ reminder.reminder_time }}</p>
+<p><strong>Status:</strong> {% if reminder.is_completed %} Completed {% else %} Pending {% endif %}</p>
+
+<a href="{% url 'reminder_update' reminder.id %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'reminder_delete' reminder.id %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'reminder_list' %}" class="btn btn-secondary">Back to List</a>
+{% endblock content %}

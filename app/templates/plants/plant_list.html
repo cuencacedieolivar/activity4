@@ -1,0 +1,48 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <h1>Plant List</h1>
+
+    <!-- Table to display all plants with custom class -->
+    <div class="plant-list">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for plant in plants %}
+                    <tr>
+                        <td>
+                            {% if plant.image %}
+                                <img src="{{ plant.image.url }}" alt="{{ plant.name }}" width="100" height="100">
+                            {% else %}
+                                <img src="/static/images/default-plant.jpg" alt="No Image Available" width="100" height="100">
+                            {% endif %}
+                        </td>
+                        <td><a href="{% url 'plant_detail' plant.pk %}">{{ plant.name }}</a></td>
+                        <td>{{ plant.type }}</td>
+                        <td>
+                            <!-- Action buttons for each plant -->
+                            <a href="{% url 'health_status_create' %}?plant_id={{ plant.id }}" class="btn btn-success">Add Health Status</a>
+                            <a href="{% url 'care_log_create' %}?plant_id={{ plant.id }}" class="btn btn-info">Add Care Log</a>
+                            <a href="{% url 'watering_schedule_create' %}?plant_id={{ plant.id }}" class="btn btn-warning">Add Watering Schedule</a>
+                            <a href="{% url 'reminder_create' %}?plant_id={{ plant.id }}" class="btn btn-primary">Add Reminder</a>
+
+                            <!-- View button to view details of the plant -->
+                            <a href="{% url 'plant_detail' plant.pk %}" class="btn btn-secondary">View</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Link to add a new plant -->
+    <a href="{% url 'plant_create' %}" class="btn btn-primary">Add New Plant</a>
+
+{% endblock content %}

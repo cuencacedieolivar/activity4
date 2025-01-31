@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h2>Reminders</h2>
+<a href="{% url 'reminder_create' %}" class="btn btn-primary">Create Reminder</a>
+<ul>
+    {% for reminder in reminders %}
+        <li>
+            <a href="{% url 'reminder_detail' reminder.pk %}">{{ reminder.task }} - {{ reminder.reminder_time }}</a>
+            {% if not reminder.is_completed %}
+                <span style="color: red;">(Pending)</span>
+            {% else %}
+                <span style="color: green;">(Completed)</span>
+            {% endif %}
+        </li>
+    {% empty %}
+        <p>No reminders available.</p>
+    {% endfor %}
+</ul>
+{% endblock content %}

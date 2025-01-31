@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h2>Create Reminder</h2>
+<form method="post">
+    {% csrf_token %}
+    
+    <label for="id_plant">Plant:</label>
+    <select name="plant" id="id_plant" class="form-control" required>
+        <option value="" disabled {% if not selected_plant %}selected{% endif %}>Select a plant</option>
+        {% for plant in plants %}
+            <option value="{{ plant.id }}" {% if plant == selected_plant %}selected{% endif %}>{{ plant.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="id_task">Task:</label>
+    <input type="text" name="task" id="id_task" class="form-control" required>
+
+    <label for="id_reminder_time">Reminder Time:</label>
+    <input type="datetime-local" name="reminder_time" id="id_reminder_time" class="form-control" required>
+
+    <label for="id_is_completed">Completed:</label>
+    <input type="checkbox" name="is_completed" id="id_is_completed">
+
+    <br>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a href="{% url 'reminder_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock content %}

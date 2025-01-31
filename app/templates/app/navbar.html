@@ -1,0 +1,31 @@
+<header class="navbar">
+    <ul>
+        <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'plant_list' %}"><i class="fas fa-leaf"></i> Plants</a></li>
+            <li><a href="{% url 'health_status_list' %}"><i class="fas fa-heartbeat"></i> Health Status</a></li>
+            <li><a href="{% url 'care_log_list' %}"><i class="fas fa-seedling"></i> Care Logs</a></li>
+            <li><a href="{% url 'watering_schedule_list' %}"><i class="fas fa-tint"></i> Watering Schedule</a></li>
+            <li><a href="{% url 'reminder_list' %}"><i class="fas fa-bell"></i> Reminders</a></li>
+        {% endif %}
+        <li><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact</a></li>
+
+        <li class="user-menu">
+            {% if user.is_authenticated %}
+                <a href="#"><i class="fas fa-user"></i> {{ user.username }}</a>
+                <ul class="dropdown">
+                    <li>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="dropdown-item">Log out</button>
+                        </form>
+                    </li>
+                </ul>
+            {% else %}
+                <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                <li><a href="{% url 'signup' %}"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+            {% endif %}
+        </li>
+    </ul>
+</header>
